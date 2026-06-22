@@ -823,8 +823,8 @@ footer{background:var(--dark);color:var(--p100);padding:3rem 5%;text-align:cente
       <div class="con-form rvr">
         <div id="cform">
           <div class="f-row">
-            <div class="fg"><label>Nama Lengkap</label><input type="text" placeholder="Contoh = Anis CahyaDewi"></div>
-            <div class="fg"><label>Email</label><input type="email" placeholder="Contoh = aniscahyadewi4@gmail.com"></div>
+            <div class="fg"><label>Nama Lengkap</label><input type="text" placeholder="Contoh = Anis CahyaDewi..."></div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="Contoh = aniscahyadewi4@gmail.com..."></div>
           </div>
           <div class="fg"><label>Kebutuhan</label>
             <select>
@@ -842,7 +842,8 @@ footer{background:var(--dark);color:var(--p100);padding:3rem 5%;text-align:cente
         <div class="f-ok" id="fok">
           <i class="fas fa-check-circle"></i>
           <h3 style="color:var(--dark);margin-bottom:.5rem">Pesan Terkirim! 🎉</h3>
-          <p style="color:var(--light);font-size:.88rem">Terima kasih! Saya akan segera menghubungi Anda.</p>
+          <p style="color:var(--light);font-size:.88rem">Terima kasih! WhatsApp akan terbuka untuk melanjutkan percakapan.</p>
+          <button onclick="resetForm()" style="margin-top:1.4rem;padding:10px 24px;background:var(--p50);border:2px solid var(--p300);color:var(--p400);border-radius:8px;font-weight:600;cursor:pointer;transition:var(--fw);font-family:'Space Grotesk',sans-serif;font-size:.85rem">← Kembali ke Form</button>
         </div>
       </div>
     </div>
@@ -1019,9 +1020,63 @@ document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',()=>mm.cl
 
 /* ====== FORM ====== */
 function sendMsg(){
-  const f=document.getElementById('cform'),ok=document.getElementById('fok');
-  f.style.cssText='opacity:0;transform:scale(.95);transition:all .3s';
-  setTimeout(()=>{f.style.display='none';ok.style.display='block'},300);
+  // Ambil data dari form
+  const inputs = document.querySelectorAll('.con-form input, .con-form textarea, .con-form select');
+  const nama = inputs[0].value.trim();
+  const email = inputs[1].value.trim();
+  const kebutuhan = inputs[2].value.trim();
+  const pesan = inputs[3].value.trim();
+  
+  // Validasi form
+  if(!nama || !email || !pesan){
+    alert('⚠️ Mohon isi semua field (Nama, Email, dan Pesan)');
+    return;
+  }
+  
+  // Buat pesan untuk WhatsApp dengan format yang rapi
+  const waMsg = `Halo Anis! 👋\n\n*Data Kontak:*\n📝 Nama: ${nama}\n📧 Email: ${email}\n🎯 Kebutuhan: ${kebutuhan}\n\n*Pesan:*\n${pesan}`;
+  
+  // Encode pesan untuk URL
+  const encodedMsg = encodeURIComponent(waMsg);
+  
+  // Nomor WhatsApp (format internasional tanpa + atau -)
+  const phoneNumber = '6285198840431';
+  
+  // Buat URL WhatsApp API
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMsg}`;
+  
+  // Tampilkan pesan sukses
+  const f = document.getElementById('cform');
+  const ok = document.getElementById('fok');
+  f.style.cssText = 'opacity:0;transform:scale(.95);transition:all .3s';
+  
+  setTimeout(() => {
+    f.style.display = 'none';
+    ok.style.display = 'block';
+    
+    // Redirect ke WhatsApp setelah 1.5 detik
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
+    }, 1500);
+  }, 300);
+}
+
+function resetForm(){
+  const f = document.getElementById('cform');
+  const ok = document.getElementById('fok');
+  
+  // Reset semua input
+  document.querySelectorAll('.con-form input, .con-form textarea, .con-form select').forEach(input => {
+    input.value = '';
+  });
+  
+  // Tampilkan kembali form
+  ok.style.cssText = 'opacity:0;transform:scale(.95);transition:all .3s';
+  setTimeout(() => {
+    ok.style.display = 'none';
+    f.style.display = 'block';
+    f.style.cssText = 'opacity:1;transform:scale(1);transition:all .3s';
+  }, 300);
 }
 
 /* ====== SMOOTH SCROLL ====== */

@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Anis CahyaDewi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ================================================== ROOT VARIABLES ================================================== */
+:root{
+  --p50:#FFF0F5;--p100:#FFE4ED;--p150:#FFD0E4;--p200:#FFB8CC;
+  --p300:#FF8FB5;--p400:#FF6B9D;--p500:#E8538A;
+  --white:#FFFFFF;--off:#FAFAFA;--dark:#1A1A2E;--mid:#4A4A6A;--light:#9B9BB8;
+  --sp:rgba(255,107,157,.15);--ss:rgba(30,30,46,.07);
+  --gp:linear-gradient(135deg,#FFB8CC,#FF6B9D);
+  --gs:linear-gradient(135deg,#FFF0F5,#FFE4ED);
+  --gb:rgba(255,184,204,.25);
+  --fw:600ms cubic-bezier(.4,0,.2,1);
+  --fwf:900ms cubic-bezier(.4,0,.2,1);
+}
+
+/* ================================================== DARK MODE ================================================== */
+[data-theme="dark"]{
+  --white:#0D0D1A;--off:#141428;--dark:#E8E8FF;--mid:#B8B8D8;--light:#7070A0;
+  --ss:rgba(0,0,0,.4);--gb:rgba(255,184,204,.1);--sp:rgba(255,107,157,.2);
+  --p50:#1A1030;--p100:#24163A;--gs:linear-gradient(135deg,#1A1030,#24163A);
+}
+[data-theme="dark"] body{background:var(--white)}
+[data-theme="dark"] nav.scrolled{background:rgba(13,13,26,.94);border-color:rgba(255,184,204,.1)}
+[data-theme="dark"] .mob-menu{background:rgba(13,13,26,.98)}
+[data-theme="dark"] .mob-menu a{color:#E8E8FF}
+[data-theme="dark"] .mob-close{color:#B8B8D8}
+[data-theme="dark"] .tl-card{background:#181830;border-color:rgba(255,184,204,.15)}
+[data-theme="dark"] .pc{background:#181830;border-color:rgba(255,184,204,.12)}
+[data-theme="dark"] .f-badge{background:#181830;border-color:rgba(255,184,204,.18)}
+[data-theme="dark"] .exp-chip{background:#181830;border-color:rgba(255,184,204,.18)}
+[data-theme="dark"] .t-card{background:#181830;border-color:rgba(255,184,204,.12)}
+[data-theme="dark"] .con-form{background:#141428;border-color:rgba(255,184,204,.15)}
+[data-theme="dark"] .con-item{background:#181830;border-color:rgba(255,184,204,.1)}
+[data-theme="dark"] .soft-c{background:#181830;border-color:rgba(255,184,204,.12)}
+[data-theme="dark"] .t-chip{background:#181830;border-color:rgba(255,184,204,.12);color:#B8B8D8}
+[data-theme="dark"] .a-tag{background:#181830;border-color:rgba(255,184,204,.12);color:#B8B8D8}
+[data-theme="dark"] .fg input,[data-theme="dark"] .fg textarea,[data-theme="dark"] .fg select{
+  background:#0D0D1A;border-color:rgba(255,184,204,.2);color:#E8E8FF}
+[data-theme="dark"] .ph-holder,[data-theme="dark"] .aimg-ph{background:#181830}
+[data-theme="dark"] .ph-holder span{color:#B8B8D8}
+[data-theme="dark"] .tab-b{background:#181830;border-color:rgba(255,184,204,.18);color:#7070A0}
+[data-theme="dark"] .tab-b.act,[data-theme="dark"] .tab-b:hover{background:var(--gp);color:#fff;border-color:transparent}
+[data-theme="dark"] .sk-bar{background:#181830}
+[data-theme="dark"] .pf-b{border-color:rgba(255,184,204,.18);color:#7070A0}
+[data-theme="dark"] .pf-b.act,[data-theme="dark"] .pf-b:hover{background:var(--p50);border-color:var(--p300);color:var(--p400)}
+[data-theme="dark"] .soc-a{background:#181830;border-color:rgba(255,184,204,.18);color:#7070A0}
+[data-theme="dark"] .h-stats{border-top-color:rgba(255,184,204,.15)}
+[data-theme="dark"] .nav-ul a{color:#B8B8D8}
+[data-theme="dark"] .tl-date{background:#1E1040}
+[data-theme="dark"] .btn-b{border-color:rgba(255,184,204,.3);color:var(--p400)}
+[data-theme="dark"] .btn-b:hover{background:var(--p50)}
+[data-theme="dark"] .p-bg{filter:brightness(.85)}
+[data-theme="dark"] footer{background:#07071A}
+[data-theme="dark"] .sk-fill::after{background:#181830}
+
+/* Dark Mode Toggle Button */
+.dm-btn{
+  width:38px;height:38px;background:var(--p50);border:2px solid var(--p100);
+  border-radius:50%;cursor:none;display:flex;align-items:center;justify-content:center;
+  color:var(--p400);font-size:.9rem;transition:var(--fw);flex-shrink:0;font-family:inherit;
+  padding:0;line-height:1;
+}
+.dm-btn:hover{background:var(--gp);color:#fff;border-color:transparent;box-shadow:0 4px 16px var(--sp)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.mob-dm{margin-top:.5rem}
+.mob-dm-btn{
+  display:flex;align-items:center;gap:10px;background:var(--p50);border:2px solid var(--p100);
+  padding:10px 24px;border-radius:50px;color:var(--p400);font-size:1rem;font-weight:600;
+  cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:var(--fw);
+}
+.mob-dm-btn:hover{background:var(--gp);color:#fff;border-color:transparent}
+
+/* ================================================== RESET & BASE ================================================== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Space Grotesk',sans-serif;background:var(--white);color:var(--dark);overflow-x:hidden;cursor:none;transition:background .4s,color .4s}
+
+/* ================================================== CUSTOM CURSOR ================================================== */
+.cd{width:8px;height:8px;background:var(--p400);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .08s}
+.cr{width:38px;height:38px;border:2px solid var(--p300);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,border-color .2s;background:rgba(255,184,204,.04)}
+.cr.hov{width:56px;height:56px;background:rgba(255,107,157,.08);border-color:var(--p400)}
+
+/* ================================================== SCROLL PROGRESS ================================================== */
+.sp-bar{position:fixed;top:0;left:0;height:3px;background:var(--gp);z-index:9999;transition:width .1s linear;border-radius:0 2px 2px 0;box-shadow:0 0 10px rgba(255,107,157,.5)}
+
+/* ================================================== NAVBAR ================================================== */
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;transition:var(--fw)}
+nav.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:14px 5%;box-shadow:0 4px 30px var(--sp);border-bottom:1px solid var(--gb)}
+.logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;letter-spacing:-1px}
+.nav-ul{display:flex;list-style:none;gap:2rem;align-items:center}
+.nav-ul a{text-decoration:none;color:var(--mid);font-weight:500;font-size:.88rem;letter-spacing:.3px;position:relative;transition:color var(--fw)}
+.nav-ul a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gp);transition:width var(--fw);border-radius:2px}
+.nav-ul a:hover{color:var(--p400)}
+.nav-ul a:hover::after{width:100%}
+.nav-cta{background:var(--gp)!important;color:#fff!important;padding:10px 24px!important;border-radius:50px!important;font-weight:700!important;box-shadow:0 4px 20px var(--sp)!important;transition:var(--fw)!important}
+.nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 8px 28px rgba(255,107,157,.45)!important}
+.nav-cta::after{display:none!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hbg span{width:24px;height:2px;background:var(--p400);border-radius:2px;transition:var(--fw)}
+
+/* ================================================== MOBILE MENU ================================================== */
+.mob-menu{position:fixed;inset:0;background:rgba(255,255,255,.96);backdrop-filter:blur(30px);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;transform:translateX(100%);transition:var(--fwf)}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{font-size:1.6rem;font-weight:700;color:var(--dark);text-decoration:none;transition:color var(--fw)}
+.mob-menu a:hover{color:var(--p400)}
+.mob-close{position:absolute;top:22px;right:5%;font-size:1.4rem;color:var(--mid);background:none;border:none;cursor:pointer}
+
+/* ================================================== HERO ================================================== */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--white)}
+#hcv{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.65}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:110px 5% 90px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-text{animation:fdUp .9s ease both}
+.h-badge{display:inline-flex;align-items:center;gap:8px;background:var(--p50);border:1px solid var(--gb);padding:8px 18px;border-radius:50px;font-size:.78rem;font-weight:700;color:var(--p500);margin-bottom:1.4rem;letter-spacing:1.2px;text-transform:uppercase}
+.h-badge .dot{width:8px;height:8px;background:var(--p400);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.8vw,4.4rem);font-weight:900;line-height:1.08;margin-bottom:.6rem;color:var(--dark)}
+.h-title .hl{background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-sub{font-size:clamp(1rem,2.2vw,1.3rem);color:var(--mid);margin-bottom:1.4rem;font-weight:400;min-height:2em}
+.typ-wrap{display:inline-flex;align-items:center;gap:8px}
+.typ-pre{color:var(--light)}
+.typ-txt{color:var(--p400);font-weight:600}
+.typ-cur{display:inline-block;width:2px;height:1.1em;background:var(--p400);animation:blink 1s ease-in-out infinite;vertical-align:middle}
+.h-desc{color:var(--light);font-size:.98rem;line-height:1.85;margin-bottom:2.4rem;max-width:460px}
+.h-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-a{display:inline-flex;align-items:center;gap:8px;background:var(--gp);color:#fff;padding:14px 30px;border-radius:50px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 8px 28px rgba(255,107,157,.35);transition:var(--fw)}
+.btn-a:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,107,157,.5)}
+.btn-b{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--p400);padding:14px 30px;border-radius:50px;font-weight:700;font-size:.92rem;text-decoration:none;border:2px solid var(--p200);transition:var(--fw)}
+.btn-b:hover{background:var(--p50);border-color:var(--p300);transform:translateY(-3px)}
+.h-stats{display:flex;gap:2.5rem;margin-top:2.4rem;padding-top:2rem;border-top:1px solid var(--p100)}
+.h-stat-n{font-size:1.9rem;font-weight:800;background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.h-stat-l{font-size:.75rem;color:var(--light);font-weight:500;margin-top:3px}
+.h-visual{position:relative;display:flex;justify-content:center;align-items:center;animation:fdRt .9s ease .25s both}
+.h-frame{position:relative;width:300px;height:360px}
+.h-blob1{position:absolute;width:300px;height:360px;background:var(--gs);border-radius:62% 38% 46% 54% / 60% 44% 56% 40%;animation:mb1 8s ease-in-out infinite}
+.h-blob2{position:absolute;width:270px;height:330px;background:var(--gp);opacity:.12;border-radius:38% 62% 54% 46% / 44% 60% 40% 56%;animation:mb2 10s ease-in-out infinite;top:18px;left:18px}
+.h-photo{position:absolute;width:270px;height:330px;border-radius:60% 40% 50% 50% / 55% 45% 55% 45%;animation:mb1 8s ease-in-out infinite;top:18px;left:18px;z-index:2;overflow:hidden}
+.ph-holder{width:100%;height:100%;background:linear-gradient(135deg,var(--p100),var(--p200));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-radius:inherit}
+.ph-holder i{font-size:4rem;color:var(--p300)}
+.ph-holder span{font-size:.75rem;color:var(--p400);font-weight:600;text-align:center;padding:0 20px}
+.f-badge{position:absolute;background:#fff;border-radius:14px;padding:10px 15px;box-shadow:0 8px 28px var(--sp);border:1px solid var(--gb);display:flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--mid);z-index:5;animation:float 3s ease-in-out infinite}
+.f-icon{width:30px;height:30px;background:var(--gp);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem}
+.fb1{top:-12px;right:-30px;animation-delay:0s}
+.fb2{bottom:20px;left:-40px;animation-delay:1s}
+.fb3{top:45%;right:-56px;transform:translateY(-50%);animation-delay:2s}
+.scroll-ind{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.scroll-ind span{font-size:.7rem;color:var(--light);letter-spacing:2.5px;text-transform:uppercase}
+.s-mouse{width:24px;height:36px;border:2px solid var(--p200);border-radius:12px;display:flex;justify-content:center;padding-top:5px}
+.s-wheel{width:4px;height:8px;background:var(--p300);border-radius:2px;animation:sw 2s ease-in-out infinite}
+
+/* ================================================== SECTION COMMONS ================================================== */
+section{padding:100px 5%}
+.ctr{max-width:1200px;margin:0 auto}
+.s-head{text-align:center;margin-bottom:4rem}
+.s-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--p400);background:var(--p50);padding:6px 16px;border-radius:50px;margin-bottom:1rem;border:1px solid var(--p100)}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:700;color:var(--dark);line-height:1.15}
+.s-title span{background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.s-desc{color:var(--light);font-size:.97rem;line-height:1.75;max-width:520px;margin:1rem auto 0}
+
+/* ================================================== ABOUT ================================================== */
+#about{background:var(--p50)}
+.about-g{display:grid;grid-template-columns:1fr 1.25fr;gap:5rem;align-items:center}
+.aimg-wrap{position:relative}
+.aimg-frame{width:100%;aspect-ratio:4/5;max-width:360px;background:var(--gs);border-radius:30% 70% 70% 30% / 30% 30% 70% 70%;animation:mb3 11s ease-in-out infinite;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.aimg-ph{width:82%;height:82%;background:var(--p100);border-radius:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.aimg-ph i{font-size:5rem;color:var(--p300)}
+.a-dec{position:absolute;width:110px;height:110px;background:var(--gp);opacity:.1;border-radius:50%;bottom:-15px;right:-15px;animation:float 5s ease-in-out infinite}
+.a-dec2{position:absolute;width:70px;height:70px;background:var(--p300);opacity:.14;border-radius:50%;top:15px;left:-15px;animation:float 4s ease-in-out infinite 1.2s}
+.exp-chip{position:absolute;bottom:30px;right:-18px;background:#fff;padding:14px 18px;border-radius:18px;box-shadow:0 10px 40px var(--sp);border:1px solid var(--gb);text-align:center;z-index:3}
+.exp-chip .en{font-size:2.1rem;font-weight:800;background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.exp-chip .el{font-size:.68rem;color:var(--light);font-weight:600;margin-top:3px}
+.a-txt p{color:var(--mid);line-height:1.85;margin-bottom:1.1rem;font-size:.97rem}
+.a-info{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.8rem 0}
+.a-ii label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light)}
+.a-ii span{font-size:.9rem;font-weight:600;color:var(--dark);display:block;margin-top:2px}
+.a-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.4rem}
+.a-tag{background:#fff;border:1px solid var(--p100);color:var(--mid);padding:6px 14px;border-radius:50px;font-size:.8rem;font-weight:500;transition:var(--fw)}
+.a-tag:hover{background:var(--p50);border-color:var(--p300);color:var(--p500);transform:translateY(-2px)}
+
+/* ================================================== SKILLS ================================================== */
+#skills{background:var(--white)}
+.sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.sk-cat h3{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:1.8rem;color:var(--dark);display:flex;align-items:center;gap:10px}
+.cat-ic{width:34px;height:34px;background:var(--gp);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem}
+.sk-item{margin-bottom:1.5rem}
+.sk-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.sk-nm{font-size:.87rem;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:8px}
+.sk-nm i{color:var(--p400);width:18px}
+.sk-pct{font-size:.78rem;font-weight:700;color:var(--p400)}
+.sk-bar{height:7px;background:var(--p100);border-radius:50px;overflow:visible;position:relative}
+.sk-fill{height:100%;background:var(--gp);border-radius:50px;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);position:relative}
+.sk-fill::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:14px;height:14px;background:#fff;border:3px solid var(--p400);border-radius:50%;box-shadow:0 0 0 3px var(--sp)}
+.soft-g{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.soft-c{background:var(--p50);border:1px solid var(--p100);border-radius:14px;padding:1.4rem;text-align:center;transition:var(--fw)}
+.soft-c:hover{background:var(--gs);border-color:var(--p200);transform:translateY(-4px);box-shadow:0 10px 28px var(--sp)}
+.soft-ic{font-size:1.7rem;margin-bottom:.45rem}
+.soft-nm{font-size:.8rem;font-weight:600;color:var(--mid)}
+.tools-sec{margin-top:4rem;text-align:center}
+.tools-lbl{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--light);margin-bottom:1.4rem;display:block}
+.tools-fl{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.t-chip{background:var(--p50);border:1px solid var(--p100);padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;color:var(--mid);display:flex;align-items:center;gap:6px;transition:var(--fw)}
+.t-chip:hover{background:var(--gp);color:#fff;border-color:transparent;transform:translateY(-3px);box-shadow:0 8px 20px var(--sp)}
+
+/* ================================================== EXPERIENCE ================================================== */
+#exp{background:var(--p50)}
+.tab-row{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+.tab-b{background:#fff;border:2px solid var(--p100);color:var(--light);padding:10px 26px;border-radius:50px;font-weight:600;font-size:.87rem;cursor:pointer;transition:var(--fw);display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif}
+.tab-b.act,.tab-b:hover{background:var(--gp);color:#fff;border-color:transparent;box-shadow:0 6px 20px var(--sp)}
+.t-pane{display:none}
+.t-pane.act{display:block}
+.tl{position:relative;max-width:800px;margin:0 auto}
+.tl::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:2px;height:100%;background:var(--gp);opacity:.25}
+.tl-item{display:flex;justify-content:flex-end;padding-right:calc(50% + 28px);margin-bottom:3rem;position:relative}
+.tl-item:nth-child(even){justify-content:flex-start;padding-right:0;padding-left:calc(50% + 28px)}
+.tl-dot{position:absolute;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--gp);border-radius:50%;top:22px;box-shadow:0 0 0 5px var(--p100);z-index:2}
+.tl-card{background:#fff;border-radius:18px;padding:1.4rem;max-width:330px;box-shadow:0 4px 18px var(--ss);border:1px solid var(--gb);transition:var(--fw)}
+.tl-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px var(--sp)}
+.tl-date{font-size:.72rem;font-weight:700;letter-spacing:1px;color:var(--p400);text-transform:uppercase;background:var(--p50);display:inline-block;padding:3px 12px;border-radius:50px;margin-bottom:9px}
+.tl-title{font-size:.97rem;font-weight:700;color:var(--dark);margin-bottom:3px}
+.tl-co{font-size:.83rem;color:var(--p400);font-weight:600;margin-bottom:7px}
+.tl-desc{font-size:.83rem;color:var(--light);line-height:1.65}
+
+/* ================================================== PROJECTS ================================================== */
+#projects{background:var(--white)}
+.pf-row{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap;margin-bottom:3rem}
+.pf-b{background:transparent;border:1px solid var(--p100);color:var(--light);padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;cursor:pointer;transition:var(--fw);font-family:'Space Grotesk',sans-serif}
+.pf-b.act,.pf-b:hover{background:var(--p50);border-color:var(--p300);color:var(--p400)}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.pc{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 4px 18px var(--ss);border:1px solid var(--p50);transition:transform .3s ease,box-shadow .3s ease;position:relative;transform-style:preserve-3d}
+.pc:hover{box-shadow:0 20px 55px var(--sp)}
+.p-thumb{width:100%;height:200px;position:relative;overflow:hidden}
+.p-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.2rem;transition:transform .5s ease}
+.pc:hover .p-bg{transform:scale(1.06)}
+.p-ov{position:absolute;inset:0;background:rgba(255,107,157,.88);display:flex;align-items:center;justify-content:center;gap:1rem;opacity:0;transition:opacity .3s ease}
+.pc:hover .p-ov{opacity:1}
+.p-lnk{width:42px;height:42px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--p400);font-size:.95rem;text-decoration:none;transform:translateY(18px);transition:transform .3s ease}
+.pc:hover .p-lnk{transform:translateY(0)}
+.pc:hover .p-lnk:nth-child(2){transition-delay:.08s}
+.p-body{padding:1.4rem}
+.p-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:.9rem}
+.p-tag{background:var(--p50);color:var(--p400);font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:50px;border:1px solid var(--p100)}
+.p-ttl{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
+.p-dsc{font-size:.83rem;color:var(--light);line-height:1.6}
+
+/* ================================================== CONTACT ================================================== */
+#contact{background:var(--white)}
+.con-g{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start}
+.con-info h3{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--dark);margin-bottom:.9rem}
+.con-info>p{color:var(--light);line-height:1.75;margin-bottom:1.8rem;font-size:.95rem}
+.con-item{display:flex;align-items:center;gap:.9rem;margin-bottom:1rem;padding:1rem 1.1rem;background:var(--p50);border-radius:13px;border:1px solid var(--p100);transition:var(--fw)}
+.con-item:hover{background:var(--gs);transform:translateX(6px)}
+.con-ic{width:40px;height:40px;background:var(--gp);border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;flex-shrink:0}
+.con-lbl{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--light)}
+.con-val{font-size:.88rem;font-weight:600;color:var(--dark)}
+.soc-row{display:flex;gap:10px;margin-top:1.8rem}
+.soc-a{width:42px;height:42px;background:#fff;border:2px solid var(--p100);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--light);text-decoration:none;font-size:.95rem;transition:var(--fw)}
+.soc-a:hover{background:var(--gp);border-color:transparent;color:#fff;transform:translateY(-4px);box-shadow:0 8px 20px var(--sp)}
+.con-form{background:var(--p50);border-radius:24px;padding:2.4rem;border:1px solid var(--p100)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-size:.8rem;font-weight:600;color:var(--mid);margin-bottom:7px}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 15px;background:#fff;border:2px solid var(--p100);border-radius:11px;font-family:'Space Grotesk',sans-serif;font-size:.88rem;color:var(--dark);outline:none;transition:var(--fw);resize:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--p300);box-shadow:0 0 0 4px rgba(255,107,157,.09)}
+.fg textarea{height:120px}
+.f-sub{width:100%;padding:13px;background:var(--gp);color:#fff;border:none;border-radius:11px;font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:var(--fw);display:flex;align-items:center;justify-content:center;gap:8px}
+.f-sub:hover{box-shadow:0 8px 28px rgba(255,107,157,.5);transform:translateY(-2px)}
+.f-ok{display:none;text-align:center;padding:2rem;animation:fdUp .5s ease}
+.f-ok i{font-size:3rem;color:var(--p400);display:block;margin-bottom:1rem}
+.f-ok h3{color:var(--dark);margin-bottom:.5rem}
+.f-ok p{color:var(--light);font-size:.88rem}
+
+/* ================================================== FOOTER ================================================== */
+footer{background:var(--dark);color:var(--p100);padding:3rem 5%;text-align:center}
+.f-logo{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:1rem}
+.f-ul{display:flex;justify-content:center;gap:2rem;list-style:none;margin-bottom:1.5rem;flex-wrap:wrap}
+.f-ul a{text-decoration:none;color:rgba(255,228,237,.55);font-size:.83rem;transition:color var(--fw)}
+.f-ul a:hover{color:var(--p200)}
+.f-soc{display:flex;justify-content:center;gap:10px;margin-bottom:1.5rem}
+.f-soc a{width:38px;height:38px;background:rgba(255,184,204,.1);border:1px solid rgba(255,184,204,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--p200);font-size:.85rem;text-decoration:none;transition:var(--fw)}
+.f-soc a:hover{background:var(--gp);border-color:transparent;transform:translateY(-3px)}
+.f-copy{font-size:.78rem;color:rgba(255,228,237,.35)}
+.f-copy span{color:var(--p300)}
+
+/* ================================================== BACK TO TOP ================================================== */
+.btt{position:fixed;bottom:28px;right:28px;width:46px;height:46px;background:var(--gp);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;text-decoration:none;box-shadow:0 8px 24px var(--sp);transition:var(--fw);opacity:0;pointer-events:none;transform:translateY(18px);z-index:500}
+.btt.vis{opacity:1;pointer-events:all;transform:translateY(0)}
+.btt:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(255,107,157,.6)}
+
+/* ================================================== REVEAL ANIMATIONS ================================================== */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rvl{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease}
+.rvr{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:translate(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ================================================== KEYFRAMES ================================================== */
+@keyframes fdUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fdRt{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.7}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes sw{0%{transform:translateY(0);opacity:1}100%{transform:translateY(11px);opacity:0}}
+@keyframes mb1{0%,100%{border-radius:62% 38% 46% 54%/60% 44% 56% 40%}33%{border-radius:40% 60% 60% 40%/40% 60% 40% 60%}66%{border-radius:55% 45% 38% 62%/48% 52% 48% 52%}}
+@keyframes mb2{0%,100%{border-radius:38% 62% 54% 46%/44% 60% 40% 56%}33%{border-radius:60% 40% 40% 60%/60% 40% 60% 40%}66%{border-radius:45% 55% 62% 38%/52% 48% 52% 48%}}
+@keyframes mb3{0%,100%{border-radius:30% 70% 70% 30%/30% 30% 70% 70%}33%{border-radius:70% 30% 30% 70%/70% 70% 30% 30%}66%{border-radius:50% 50% 50% 50%/50% 50% 50% 50%}}
+@keyframes scroll30{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ================================================== RESPONSIVE ================================================== */
+@media(max-width:1024px){.pg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  section{padding:70px 5%}
+  nav{padding:14px 5%}
+  .nav-ul{display:none}
+  .hbg{display:flex}
+  .hero-inner{grid-template-columns:1fr;text-align:center;padding:110px 5% 60px;gap:3rem}
+  .h-desc,.h-stats{margin-left:auto;margin-right:auto}
+  .h-btns{justify-content:center}
+  .h-visual{order:-1}
+  .h-frame{width:250px;height:300px}
+  .h-blob1{width:250px;height:300px}
+  .h-blob2{width:220px;height:270px}
+  .h-photo{width:220px;height:270px}
+  .fb1,.fb2,.fb3{display:none}
+  .about-g{grid-template-columns:1fr;gap:3rem}
+  .aimg-frame{max-width:280px;margin:0 auto}
+  .sk-grid{grid-template-columns:1fr;gap:3rem}
+  .soft-g{grid-template-columns:1fr 1fr}
+  .tl::before{left:18px}
+  .tl-item,.tl-item:nth-child(even){justify-content:flex-start;padding-right:0;padding-left:55px}
+  .tl-dot{left:18px}
+  .pg{grid-template-columns:1fr}
+  .con-g{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  body{cursor:auto}
+  .cd,.cr{display:none}
+  .a-info{grid-template-columns:1fr}
+  .h-stats{gap:1.5rem}
+  .exp-chip{right:10px}
+}
+@media(max-width:480px){
+  .h-title{font-size:2.4rem}
+  .h-frame{width:200px;height:240px}
+  .h-blob1{width:200px;height:240px}
+  .h-blob2{width:175px;height:215px}
+  .h-photo{width:175px;height:215px}
+  .pg{grid-template-columns:1fr}
+  .tools-fl{gap:8px}
+  .t-chip{padding:7px 14px;font-size:.76rem}
+  nav{padding:12px 4%}
+  .s-title{font-size:1.7rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cd" id="cd"></div>
+<div class="cr" id="cr"></div>
+
+<!-- SCROLL PROGRESS -->
+<div class="sp-bar" id="spb"></div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <a href="#hero" class="logo">AC.</a>
+  <ul class="nav-ul">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#skills">Keahlian</a></li>
+    <li><a href="#exp">Pengalaman</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#contact">Kontak</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me ✨</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="dm-btn" id="dmt" title="Mode Gelap / Terang" aria-label="Toggle dark mode">
+      <i class="fas fa-moon" id="dmi"></i>
+    </button>
+    <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mm">
+  <button class="mob-close" id="mmc"><i class="fas fa-times"></i></button>
+  <a href="#about" class="ml">Tentang</a>
+  <a href="#skills" class="ml">Keahlian</a>
+  <a href="#exp" class="ml">Pengalaman</a>
+  <a href="#projects" class="ml">Proyek</a>
+  <a href="#contact" class="ml">Kontak</a>
+  <div class="mob-dm">
+    <button class="mob-dm-btn" id="mdmt"><i class="fas fa-moon" id="mdmi"></i>&nbsp; Mode Gelap</button>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <canvas id="hcv"></canvas>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="h-badge"><span class="dot"></span>Terbuka untuk Peluang Baru</div>
+      <h1 class="h-title">Halo, Saya<br><span class="hl">Anis CahyaDewi</span></h1>
+      <div class="h-sub">
+        <div class="typ-wrap">
+          <span class="typ-pre">Seorang&nbsp;</span>
+          <span class="typ-txt" id="tt"></span>
+          <span class="typ-cur"></span>
+        </div>
+      </div>
+      <p class="h-desc">Siswi aktif yang passionate dalam menciptakan konten digital yang menarik dan bermakna. Dengan keahlian desain Canva, Microsoft Office, dan publikasi digital, saya siap menghadirkan karya kreatif terbaik untuk setiap proyek.</p>
+      <div class="h-btns">
+        <a href="#projects" class="btn-a"><i class="fas fa-eye"></i> Lihat Proyek</a>
+        <a href="#contact" class="btn-b"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
+      </div>
+      <div class="h-stats">
+        <div><div class="h-stat-n counter" data-t="10">0</div><div class="h-stat-l">Proyek Selesai</div></div>
+        <div><div class="h-stat-n counter" data-t="2">0</div><div class="h-stat-l">Tahun Belajar</div></div>
+        <div><div class="h-stat-n counter" data-t="5">0</div><div class="h-stat-l">Klien Puas</div></div>
+      </div>
+    </div>
+    <div class="h-visual">
+      <div class="h-frame">
+        <div class="h-blob1"></div>
+        <div class="h-blob2"></div>
+        <div class="h-photo"><div class="ph-holder"><i class="fas fa-user"></i><span>Tambahkan Foto Anda</span></div></div>
+      </div>
+      <div class="f-badge fb1"><div class="f-icon"><i class="fab fa-canva"></i></div><span>Canva Designer</span></div>
+      <div class="f-badge fb2"><div class="f-icon"><i class="fas fa-table"></i></div><span>Excel Expert</span></div>
+      <div class="f-badge fb3"><div class="f-icon"><i class="fas fa-book-open"></i></div><span>Flipbook Creator</span></div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <div class="s-mouse"><div class="s-wheel"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="ctr">
+    <div class="s-head">
+      <span class="s-eyebrow rv">Kenali Saya</span>
+      <h2 class="s-title rv d1">Tentang <span>Saya</span></h2>
+      <p class="s-desc rv d2">Cerita singkat tentang perjalanan dan passion saya dalam dunia digital dan kreatif</p>
+    </div>
+    <div class="about-g">
+      <div class="aimg-wrap rvl">
+        <div class="aimg-frame"><div class="aimg-ph"><i class="fas fa-user"></i></div></div>
+        <div class="a-dec"></div><div class="a-dec2"></div>
+        <div class="exp-chip"><div class="en counter" data-t="2">0</div><div class="el">Tahun<br>Belajar</div></div>
+      </div>
+      <div class="a-txt rvr">
+        <p>Halo! Saya <strong style="color:var(--p400)">Anis CahyaDewi</strong>, siswi aktif jurusan Informatika yang berdedikasi dengan minat besar di bidang <strong style="color:var(--p400)">Desain Digital & Kreasi Konten</strong>. Saya percaya setiap ide kreatif layak diwujudkan menjadi karya digital yang bermakna.</p>
+        <p>Melalui berbagai proyek akademis dan personal, saya telah mengembangkan keahlian dalam desain grafis Canva, pengolahan data Microsoft Excel, pembuatan flipbook digital dengan Heyzine, serta kreasi konten multimedia. Saya selalu antusias belajar hal-hal baru dan terus berkembang.</p>
+        <div class="a-info">
+          <div class="a-ii"><label>Nama</label><span>Anis CahyaDewi</span></div>
+          <div class="a-ii"><label>Email</label><span>email@namaanda.com</span></div>
+          <div class="a-ii"><label>Lokasi</label><span>Purwokerto, Jawa Tengah</span></div>
+          <div class="a-ii"><label>Status</label><span style="color:var(--p400)">✓ Terbuka untuk Peluang</span></div>
+          <div class="a-ii"><label>Institusi</label><span>SMK / Nama Sekolah Anda</span></div>
+          <div class="a-ii"><label>Bahasa</label><span>Indonesia, English (Basic)</span></div>
+        </div>
+        <div class="a-tags">
+          <span class="a-tag">🎨 Canva Design</span>
+          <span class="a-tag">📊 Microsoft Excel</span>
+          <span class="a-tag">📖 Digital Publishing</span>
+          <span class="a-tag">🎬 Content Creation</span>
+          <span class="a-tag">💻 Microsoft Office</span>
+          <span class="a-tag">📱 Multimedia</span>
+        </div>
+        <a href="CV ANIS CAHYA DEWI.pdf" class="btn-a" style="display:inline-flex;width:fit-content;margin-top:1.8rem"><i class="fas fa-download"></i> Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="ctr">
+    <div class="s-head">
+      <span class="s-eyebrow rv">Yang Saya Bisa</span>
+      <h2 class="s-title rv d1">Keahlian & <span>Kemampuan</span></h2>
+      <p class="s-desc rv d2">Kombinasi keahlian teknis digital dan interpersonal yang siap diaplikasikan di berbagai kesempatan</p>
+    </div>
+    <div class="sk-grid">
+      <div class="sk-cat rvl">
+        <h3><span class="cat-ic"><i class="fas fa-laptop"></i></span> Technical Skills</h3>
+        <div class="sk-item"><div class="sk-hd"><span class="sk-nm"><i class="fab fa-book-open"></i>Canva Design</span><span class="sk-pct">92%</span></div><div class="sk-bar"><div class="sk-fill" data-w="92"></div></div></div>
+        <div class="sk-item"><div class="sk-hd"><span class="sk-nm"><i class="fas fa-file-excel"></i>Microsoft Excel</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
+        <div class="sk-item"><div class="sk-hd"><span class="sk-nm"><i class="fas fa-file-word"></i>Ms. Word & PowerPoint</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+        <div class="sk-item"><div class="sk-hd"><span class="sk-nm"><i class="fas fa-book-open"></i>Heyzine / Flipbook</span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+        <div class="sk-item"><div class="sk-hd"><span class="sk-nm"><i class="fas fa-video"></i>Video Editing (CapCut)</span><span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+        <div class="sk-item"><div class="sk-hd"><span class="sk-nm"><i class="fas fa-palette"></i>Desain Grafis Digital</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+      </div>
+      <div class="sk-cat rvr">
+        <h3><span class="cat-ic"><i class="fas fa-heart"></i></span> Soft Skills</h3>
+        <div class="soft-g">
+          <div class="soft-c"><div class="soft-ic">🤝</div><div class="soft-nm">Teamwork</div></div>
+          <div class="soft-c"><div class="soft-ic">💬</div><div class="soft-nm">Komunikasi</div></div>
+          <div class="soft-c"><div class="soft-ic">🧩</div><div class="soft-nm">Problem Solving</div></div>
+          <div class="soft-c"><div class="soft-ic">⏰</div><div class="soft-nm">Time Management</div></div>
+          <div class="soft-c"><div class="soft-ic">💡</div><div class="soft-nm">Kreativitas</div></div>
+          <div class="soft-c"><div class="soft-ic">🎯</div><div class="soft-nm">Detail-Oriented</div></div>
+          <div class="soft-c"><div class="soft-ic">📚</div><div class="soft-nm">Fast Learner</div></div>
+          <div class="soft-c"><div class="soft-ic">🔄</div><div class="soft-nm">Adaptability</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tools-sec rv">
+      <span class="tools-lbl">Tools & Platform yang Saya Gunakan</span>
+      <div class="tools-fl">
+        <div class="t-chip"><i class="fab fa-canva"></i> Canva</div>
+        <div class="t-chip"><i class="fas fa-file-excel"></i> Microsoft Excel</div>
+        <div class="t-chip"><i class="fas fa-file-word"></i> Microsoft Word</div>
+        <div class="t-chip"><i class="fas fa-file-powerpoint"></i> PowerPoint</div>
+        <div class="t-chip"><i class="fas fa-book-open"></i> Heyzine</div>
+        <div class="t-chip"><i class="fab fa-google"></i> Google Workspace</div>
+        <div class="t-chip"><i class="fas fa-video"></i> CapCut</div>
+        <div class="t-chip"><i class="fas fa-image"></i> PicsArt</div>
+        <div class="t-chip"><i class="fab fa-youtube"></i> YouTube Studio</div>
+        <div class="t-chip"><i class="fab fa-whatsapp"></i> WhatsApp Business</div>
+        <div class="t-chip"><i class="fas fa-mobile-alt"></i> Snapseed</div>
+        <div class="t-chip"><i class="fas fa-tasks"></i> Notion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="exp">
+  <div class="ctr">
+    <div class="s-head">
+      <span class="s-eyebrow rv">Perjalanan Saya</span>
+      <h2 class="s-title rv d1">Proyek & <span>Pendidikan</span></h2>
+      <p class="s-desc rv d2">Latar belakang akademis dan pencapaian yang membentuk keahlian saya saat ini</p>
+    </div>
+    <div class="tab-row rv">
+      <button class="tab-b act" data-tab="work"><i class="fas fa-star"></i> Proyek Unggulan</button>
+      <button class="tab-b" data-tab="edu"><i class="fas fa-graduation-cap"></i> Pendidikan</button>
+      <button class="tab-b" data-tab="cert"><i class="fas fa-award"></i> Pencapaian</button>
+    </div>
+
+    <!-- Proyek Unggulan -->
+    <div class="t-pane act" id="tab-work">
+      <div class="tl">
+        <div class="tl-item rv"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2024 · Desain Digital</span>
+            <div class="tl-title">Koleksi Desain Canva</div>
+            <div class="tl-co">Canva · Proyek Kreatif</div>
+            <p class="tl-desc">Menciptakan berbagai konten digital menggunakan Canva termasuk coloring book, story book, dan kartu ucapan interaktif yang menarik dan estetik.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d2"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2025 · Publikasi Digital</span>
+            <div class="tl-title">Flipbook Digital Online</div>
+            <div class="tl-co">Heyzine · Digital Publishing</div>
+            <p class="tl-desc">Membuat flipbook digital interaktif menggunakan platform Heyzine dengan navigasi halaman yang mulus dan tampilan profesional untuk kebutuhan edukatif.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d3"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2025 · Pembuatan Data Digital</span>
+            <div class="tl-title">Sistem Penggajian Excel</div>
+            <div class="tl-co">Microsoft Excel · Data Management</div>
+            <p class="tl-desc">Merancang sistem penggajian lengkap menggunakan Microsoft Excel untuk PT. Hari-Hari Cerah, mencakup database karyawan, tunjangan, dan slip gaji otomatis.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d4"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2025-2026 · Data & Analisis</span>
+            <div class="tl-title">Laporan Data & Nilai Excel</div>
+            <div class="tl-co">Microsoft Excel · Proyek Akademis</div>
+            <p class="tl-desc">Membuat berbagai laporan data menggunakan Excel termasuk laporan gaji pegawai, daftar nilai siswa, dengan formula otomatis dan grafik data yang akurat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pendidikan -->
+    <div class="t-pane" id="tab-edu">
+      <div class="tl">
+        <div class="tl-item rv"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2023-2026 – SMK</span>
+            <div class="tl-title">Jurusan Informatika</div>
+            <div class="tl-co">SMA NEGERI 11 PONTIANAK BARAT · Informatika</div>
+            <p class="tl-desc">Mempelajari dasar-dasar informatika, Microsoft Office Suite, desain digital, dan berbagai keterampilan teknologi informasi yang aplikatif di dunia kerja.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d2"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2020 – 2023 | SMP</span>
+            <div class="tl-title">Sekolah Menengah Pertama</div>
+            <div class="tl-co">SMP [Nama Sekolah]</div>
+            <p class="tl-desc">Menyelesaikan pendidikan dasar dengan aktif mengikuti kegiatan ekstrakurikuler dan mengembangkan minat di bidang teknologi dan seni kreatif.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pencapaian -->
+    <div class="t-pane" id="tab-cert">
+      <div class="tl">
+        <div class="tl-item rv"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2024</span>
+            <div class="tl-title">UKOM — Uji Kompetensi</div>
+            <div class="tl-co">Keahlian Informatika · SMK</div>
+            <p class="tl-desc">Berhasil menyelesaikan Uji Kompetensi (UKOM) bidang Informatika sebagai bentuk pengakuan atas keahlian teknis yang telah dipelajari selama di sekolah.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d2"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2024</span>
+            <div class="tl-title">10 Tugas Excel Diselesaikan</div>
+            <div class="tl-co">Microsoft Excel · Akademis</div>
+            <p class="tl-desc">Berhasil menyelesaikan 10 tugas Excel dengan hasil terbaik, mencakup pembuatan tabel data, formula kompleks, grafik, dan sistem penggajian profesional.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d3"><div class="tl-dot"></div>
+          <div class="tl-card">
+            <span class="tl-date">2024</span>
+            <div class="tl-title">Kreator Konten Digital Aktif</div>
+            <div class="tl-co">Canva & Heyzine · Portofolio Pribadi</div>
+            <p class="tl-desc">Mengembangkan portofolio konten digital pribadi meliputi 3+ desain Canva profesional dan 1 flipbook interaktif yang telah dipublikasikan secara online.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="ctr">
+    <div class="s-head">
+      <span class="s-eyebrow rv">Karya Terbaik</span>
+      <h2 class="s-title rv d1">Proyek <span>Unggulan</span></h2>
+      <p class="s-desc rv d2">Koleksi proyek terpilih yang menampilkan keahlian desain, Excel, dan konten digital saya</p>
+    </div>
+    <div class="pf-row rv">
+      <button class="pf-b act" data-f="all">Semua</button>
+      <button class="pf-b" data-f="desain">Desain Canva</button>
+      <button class="pf-b" data-f="video">Video</button>
+      <button class="pf-b" data-f="office">Microsoft Office</button>
+      <button class="pf-b" data-f="publikasi">Publikasi Digital</button>
+    </div>
+    <div class="pg">
+
+      <!-- Project 1: Coloring Book -->
+      <div class="pc rv" data-cat="desain">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFE4ED,#FFB8CC)">🎨</div>
+          <div class="p-ov">
+            <a href="https://canva.link/2czo7vgl41zhd1t" target="_blank" class="p-lnk" title="Lihat Proyek"><i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Canva</span><span class="p-tag">Desain Kreatif</span><span class="p-tag">Edukasi</span></div>
+          <div class="p-ttl">Buku Mewarnai Digital</div>
+          <p class="p-dsc">Buku mewarnai digital interaktif dengan ilustrasi warna-warni yang dirancang menggunakan Canva, cocok untuk aktivitas edukatif dan kreatif anak.</p>
+        </div>
+      </div>
+
+      <!-- Project 2: Story Book -->
+      <div class="pc rv d1" data-cat="desain">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#E8D5FF,#C4A0FF)">📚</div>
+          <div class="p-ov">
+            <a href="https://canva.link/xljp3fdwjkb09q7" target="_blank" class="p-lnk" title="Lihat Proyek"><i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Canva</span><span class="p-tag">Story Book</span><span class="p-tag">Ilustrasi</span></div>
+          <div class="p-ttl">Buku Cerita Digital</div>
+          <p class="p-dsc">Buku cerita digital kreatif dengan narasi yang menarik dan ilustrasi estetik, dirancang menggunakan Canva untuk pembaca segala usia.</p>
+        </div>
+      </div>
+
+      <!-- Project 3: Anniversary Card -->
+      <div class="pc rv d2" data-cat="desain">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFD4E4,#FF94B9)">💌</div>
+          <div class="p-ov">
+            <a href="https://canva.link/vxt18rmui314o4p" target="_blank" class="p-lnk" title="Lihat Proyek"><i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Canva</span><span class="p-tag">Desain Interaktif</span><span class="p-tag">Personal</span></div>
+          <div class="p-ttl">Kartu Anniversary Interaktif</div>
+          <p class="p-dsc">Kartu ucapan anniversary 9 bulan yang interaktif dan personal, dibuat dengan elemen desain romantis menggunakan Canva dengan tombol aksi yang menarik.</p>
+        </div>
+      </div>
+
+      <!-- Project 4: Flipbook -->
+      <div class="pc rv d3" data-cat="publikasi">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#C4E0FF,#80B8FF)">📖</div>
+          <div class="p-ov">
+            <a href="https://heyzine.com/flip-book/b661af72b1.html" target="_blank" class="p-lnk" title="Buka Flipbook"><i class="fas fa-eye"></i></a>
+            <a href="https://heyzine.com/flip-book/b661af72b1.html" target="_blank" class="p-lnk" title="Buka di Heyzine"><i class="fas fa-book-open"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Heyzine</span><span class="p-tag">Digital Publishing</span><span class="p-tag">Interaktif</span></div>
+          <div class="p-ttl">Online Flipbook Digital</div>
+          <p class="p-dsc">Flipbook digital online interaktif yang dibuat menggunakan platform Heyzine, menampilkan navigasi halaman yang mulus seperti buku nyata di layar digital.</p>
+        </div>
+      </div>
+
+      <!-- Project 5: Slip Gaji Excel -->
+      <div class="pc rv d4" data-cat="office">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#D4F5E9,#7DDFAE)">📋</div>
+          <div class="p-ov">
+            <a href="https://docs.google.com/spreadsheets/d/1v6n2-2xxty3sVvJKubtMLEevjCQY1I-N/edit?usp=sharing&ouid=111860993774758930260&rtpof=true&sd=true" class="p-lnk" title="Lihat Preview"><i class="fas fa-eye"></i></a>
+            <a href="ANIS INFORMATIKA.xlsx" class="p-lnk" title="Excel File"><i class="fas fa-file-excel"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Microsoft Excel</span><span class="p-tag">Administrasi</span><span class="p-tag">Payroll</span></div>
+          <div class="p-ttl">Laporan Gaji Pegawai Excel</div>
+          <p class="p-dsc">Sistem penggajian profesional untuk PT. Hari-Hari Cerah dengan database karyawan, kalkulasi tunjangan otomatis, dan cetak slip gaji per karyawan.</p>
+        </div>
+      </div>
+
+      <!-- Project 6: Laporan Data Excel -->
+      <div class="pc rv d5" data-cat="office">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFF5C4,#FFE066)">📊</div>
+          <div class="p-ov">
+            <a href="https://docs.google.com/spreadsheets/d/1rC452bxxuD8sW11JcE6GC4yUFxrgwhkY/edit?usp=sharing&ouid=111860993774758930260&rtpof=true&sd=true" class="p-lnk" title="Lihat Preview"><i class="fas fa-eye"></i></a>
+            <a href="Laporan Data & Nilai.xlsx" class="p-lnk" title="Excel File"><i class="fas fa-file-excel"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Microsoft Excel</span><span class="p-tag">Data</span><span class="p-tag">Laporan</span></div>
+          <div class="p-ttl">Laporan Data & Nilai Excel</div>
+          <p class="p-dsc">Kumpulan laporan data Excel meliputi laporan gaji pegawai PT. Anis, daftar nilai siswa dengan perhitungan otomatis dan grade berbasis formula.</p>
+        </div>
+      </div>
+
+      <!-- Project 7: Laporan Data Excel -->
+      <div class="pc rv d5" data-cat="office">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFF5C4,#FFE066)">📈</div>
+          <div class="p-ov">
+            <a href="https://docs.google.com/spreadsheets/d/1qssS50C1qCCsh4PsEXzsCyCrRN86UUrP/edit?usp=sharing&ouid=111860993774758930260&rtpof=true&sd=true" class="p-lnk" title="Lihat Preview"><i class="fas fa-eye"></i></a>
+            <a href="Toko Kelontong.xlsx" class="p-lnk" title="Excel File"><i class="fas fa-file-excel"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Microsoft Excel</span><span class="p-tag">Data</span><span class="p-tag">Laporan</span></div>
+          <div class="p-ttl">Laporan Input Toko Kelontong Excel</div>
+          <p class="p-dsc">Kumpulan laporan data Excel meliputi laporan toko kelontong, daftar harga barang dengan perhitungan otomatis dan grade berbasis formula.</p>
+        </div>
+      </div>
+
+      <!-- Project 8: Video Editor -->
+      <div class="pc rv d5" data-cat="video">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFF5C4,#FFE066)">🎬</div>
+          <div class="p-ov">
+            <a href="https://youtu.be/t5hAyyd-Pys?si=eQTaGensXAvFACaO" class="p-lnk" title="Lihat Video"><i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Video Maker</span><span class="p-tag">Capcut Editing</span><span class="p-tag"></span></div>
+          <div class="p-ttl">Video Capcut Editing</div>
+          <p class="p-dsc">Video hasil editan saya yang menggunakan CapCut dengan skill-skill yang saya miliki dengan sedikit tambahan element-element yang menarik.</p>
+        </div>
+      </div>
+
+      <!-- Project 9: Video Editor -->
+      <div class="pc rv d5" data-cat="video">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFF5C4,#FFE066)">🎥</div>
+          <div class="p-ov">
+            <a href="https://drive.google.com/file/d/157az50Z6QqaOD3Lw6RG7LDq6F4Fl-uAD/view?usp=sharing" class="p-lnk" title="Lihat Video"><i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Video Maker</span><span class="p-tag">Capcut Editing</span><span class="p-tag"></span></div>
+          <div class="p-ttl">Video Capcut Editing 2</div>
+          <p class="p-dsc">Video hasil editan saya yang menggunakan CapCut dengan skill-skill yang saya miliki dengan sedikit tambahan element-element yang menarik.</p>
+        </div>
+      </div>
+
+      <!-- Project 10: Video Editor -->
+      <div class="pc rv d5" data-cat="video">
+        <div class="p-thumb">
+          <div class="p-bg" style="background:linear-gradient(135deg,#FFF5C4,#FFE066)">🎞️</div>
+          <div class="p-ov">
+            <a href="https://drive.google.com/file/d/1-btd89hdrPRA8jPwUqWGCsgXf8QGk7ot/view?usp=sharing" class="p-lnk" title="Lihat Video"><i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-tags"><span class="p-tag">Video Maker</span><span class="p-tag">Capcut Editing</span><span class="p-tag">Promotion</span></div>
+          <div class="p-ttl">Video Capcut Editing Promosi</div>
+          <p class="p-dsc">Video hasil editan saya yang menggunakan CapCut dengan skill-skill yang saya miliki dengan sedikit tambahan element-element yang menarik.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="ctr">
+    <div class="s-head">
+      <span class="s-eyebrow rv">Ayo Terhubung</span>
+      <h2 class="s-title rv d1">Hubungi <span>Saya</span></h2>
+      <p class="s-desc rv d2">Punya pertanyaan atau ingin berkolaborasi untuk proyek digital? Saya selalu terbuka untuk kesempatan baru!</p>
+    </div>
+    <div class="con-g">
+      <div class="con-info rvl">
+        <h3>Mari Kita Berkolaborasi! 💬</h3>
+        <p>Jika Anda tertarik untuk berkolaborasi dalam proyek desain Canva, kebutuhan dokumen Excel, konten digital, atau sekadar ingin berkenalan — jangan ragu untuk menghubungi saya. Saya akan membalas secepat mungkin!</p>
+        <div class="con-item"><div class="con-ic"><i class="fas fa-envelope"></i></div><div><div class="con-lbl">Email</div><div class="con-val">email@namaanda.com</div></div></div>
+        <div class="con-item"><div class="con-ic"><i class="fab fa-whatsapp"></i></div><div><div class="con-lbl">WhatsApp</div><div class="con-val">+62 8XX XXXX XXXX</div></div></div>
+        <div class="con-item"><div class="con-ic"><i class="fas fa-map-marker-alt"></i></div><div><div class="con-lbl">Lokasi</div><div class="con-val">Purwokerto, Jawa Tengah</div></div></div>
+        <div class="con-item"><div class="con-ic"><i class="fas fa-clock"></i></div><div><div class="con-lbl">Waktu Respons</div><div class="con-val">Biasanya dalam 24 jam</div></div></div>
+        <div class="soc-row">
+          <a href="#" class="soc-a" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="soc-a" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-a" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="soc-a" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-a" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="con-form rvr">
+        <div id="cform">
+          <div class="f-row">
+            <div class="fg"><label>Nama Lengkap</label><input type="text" placeholder="Nama Anda"></div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="email@anda.com"></div>
+          </div>
+          <div class="fg"><label>Kebutuhan</label>
+            <select>
+              <option>Desain Canva</option>
+              <option>Template Microsoft Excel</option>
+              <option>Flipbook Digital</option>
+              <option>Konten Multimedia</option>
+              <option>Kolaborasi Proyek</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+          <div class="fg"><label>Pesan</label><textarea placeholder="Halo Anis! Saya ingin mendiskusikan..."></textarea></div>
+          <button class="f-sub" onclick="sendMsg()"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+        </div>
+        <div class="f-ok" id="fok">
+          <i class="fas fa-check-circle"></i>
+          <h3 style="color:var(--dark);margin-bottom:.5rem">Pesan Terkirim! 🎉</h3>
+          <p style="color:var(--light);font-size:.88rem">Terima kasih! Saya akan segera menghubungi Anda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">AC.</span>
+  <ul class="f-ul">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#skills">Keahlian</a></li>
+    <li><a href="#exp">Pengalaman</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+  <div class="f-soc">
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p class="f-copy">© 2024 <span>Anis CahyaDewi</span>. Dibuat dengan <span>♥</span> & Semangat · Purwokerto, Jawa Tengah · All Rights Reserved</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#hero" class="btt" id="btt"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+/* ====== CUSTOM CURSOR ====== */
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.pc,.soft-c,.t-chip,.soc-a,.pf-b,.tab-b,.con-item,.a-tag,.f-badge,.dm-btn,.mob-dm-btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('hov'));
+});
+
+/* ====== DARK MODE TOGGLE ====== */
+const dmt=document.getElementById('dmt'),dmi=document.getElementById('dmi');
+const mdmt=document.getElementById('mdmt'),mdmi=document.getElementById('mdmi');
+const html=document.documentElement;
+
+function applyTheme(dark){
+  html.setAttribute('data-theme',dark?'dark':'light');
+  const ic=dark?'fas fa-sun':'fas fa-moon';
+  const lbl=dark?'Mode Terang':'Mode Gelap';
+  dmi.className=ic;
+  mdmi.className=ic;
+  if(mdmt)mdmt.innerHTML=`<i class="${ic}"></i>&nbsp; ${lbl}`;
+  localStorage.setItem('anis-theme',dark?'dark':'light');
+}
+
+const savedTheme=localStorage.getItem('anis-theme');
+if(savedTheme==='dark')applyTheme(true);
+
+dmt.addEventListener('click',()=>{
+  applyTheme(html.getAttribute('data-theme')!=='dark');
+});
+if(mdmt)mdmt.addEventListener('click',()=>{
+  applyTheme(html.getAttribute('data-theme')!=='dark');
+});
+
+/* ====== SCROLL EVENTS ====== */
+const spb=document.getElementById('spb'),nav=document.getElementById('nav'),btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>{
+  const st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;
+  spb.style.width=(st/dh*100)+'%';
+  nav.classList.toggle('scrolled',st>50);
+  btt.classList.toggle('vis',st>400);
+});
+
+/* ====== TYPING EFFECT ====== */
+const tt=document.getElementById('tt');
+const roles=['Kreator Konten Digital','Desainer Multimedia','Ahli Microsoft Excel','Desainer Canva','Digital Publisher'];
+let ri=0,ci=0,del=false;
+function type(){
+  const cur=roles[ri];
+  if(!del){tt.textContent=cur.slice(0,ci+1);ci++;if(ci===cur.length){del=true;setTimeout(type,2000);return}}
+  else{tt.textContent=cur.slice(0,ci-1);ci--;if(ci===0){del=false;ri=(ri+1)%roles.length}}
+  setTimeout(type,del?55:95);
+}
+setTimeout(type,900);
+
+/* ====== CANVAS BG ====== */
+const cv=document.getElementById('hcv'),cx=cv.getContext('2d');
+function rsz(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}rsz();
+window.addEventListener('resize',rsz);
+const blobs=Array.from({length:7},()=>({
+  x:Math.random()*cv.width,y:Math.random()*cv.height,
+  r:80+Math.random()*130,dx:(Math.random()-.5)*.45,dy:(Math.random()-.5)*.45,
+  c:['rgba(255,184,204,.3)','rgba(255,228,237,.38)','rgba(255,107,157,.1)','rgba(255,148,185,.22)'][Math.floor(Math.random()*4)]
+}));
+function drawBlob(b){
+  const g=cx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+  g.addColorStop(0,b.c);g.addColorStop(1,'transparent');
+  cx.beginPath();cx.arc(b.x,b.y,b.r,0,Math.PI*2);cx.fillStyle=g;cx.fill();
+}
+(function anim(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  blobs.forEach(b=>{b.x+=b.dx;b.y+=b.dy;
+    if(b.x<-b.r)b.x=cv.width+b.r;if(b.x>cv.width+b.r)b.x=-b.r;
+    if(b.y<-b.r)b.y=cv.height+b.r;if(b.y>cv.height+b.r)b.y=-b.r;
+    drawBlob(b)});
+  requestAnimationFrame(anim);
+})();
+
+/* ====== INTERSECTION OBSERVER - REVEAL ====== */
+const ioOpts={threshold:.12,rootMargin:'0px 0px -35px 0px'};
+const io=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},ioOpts);
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>io.observe(el));
+
+/* ====== COUNTER ====== */
+const cio=new IntersectionObserver(ents=>{
+  ents.forEach(e=>{
+    if(e.isIntersecting&&!e.target.dataset.done){
+      e.target.dataset.done=1;
+      const tgt=+e.target.dataset.t;let cur=0;const inc=tgt/60;
+      const tm=setInterval(()=>{cur+=inc;if(cur>=tgt){e.target.textContent=tgt+'+';clearInterval(tm)}else e.target.textContent=Math.floor(cur)},28);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.counter').forEach(c=>cio.observe(c));
+
+/* ====== SKILL BARS ====== */
+const sbio=new IntersectionObserver(ents=>{
+  ents.forEach(e=>{if(e.isIntersecting&&!e.target.dataset.a){e.target.dataset.a=1;setTimeout(()=>e.target.style.width=e.target.dataset.w+'%',250)}});
+},{threshold:.3});
+document.querySelectorAll('.sk-fill').forEach(f=>sbio.observe(f));
+
+/* ====== TABS ====== */
+document.querySelectorAll('.tab-b').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-b').forEach(x=>x.classList.remove('act'));
+    document.querySelectorAll('.t-pane').forEach(x=>x.classList.remove('act'));
+    b.classList.add('act');
+    document.getElementById('tab-'+b.dataset.tab).classList.add('act');
+  });
+});
+
+/* ====== PROJECT FILTER ====== */
+const pfbs=document.querySelectorAll('.pf-b'),pcs=document.querySelectorAll('.pc');
+pfbs.forEach(b=>{
+  b.addEventListener('click',()=>{
+    pfbs.forEach(x=>x.classList.remove('act'));b.classList.add('act');
+    const f=b.dataset.f;
+    pcs.forEach(c=>{
+      const show=f==='all'||c.dataset.cat===f;
+      c.style.transition='opacity .35s,transform .35s';
+      if(show){c.style.display='block';requestAnimationFrame(()=>{c.style.opacity='1';c.style.transform=''})}
+      else{c.style.opacity='0';c.style.transform='scale(.95)';setTimeout(()=>{c.style.display='none'},350)}
+    });
+  });
+});
+
+/* ====== 3D TILT ====== */
+pcs.forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect();
+    const rx2=(e.clientY-r.top-r.height/2)/18;
+    const ry2=(r.width/2-(e.clientX-r.left))/18;
+    c.style.transform=`perspective(900px) rotateX(${rx2}deg) rotateY(${ry2}deg) translateY(-8px)`;
+    c.style.transition='transform .05s';
+  });
+  c.addEventListener('mouseleave',()=>{c.style.transform='';c.style.transition='transform .5s ease'});
+});
+
+/* ====== MOBILE MENU ====== */
+const hbg=document.getElementById('hbg'),mm=document.getElementById('mm'),mmc=document.getElementById('mmc');
+hbg.addEventListener('click',()=>mm.classList.add('open'));
+mmc.addEventListener('click',()=>mm.classList.remove('open'));
+document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+/* ====== FORM ====== */
+function sendMsg(){
+  const f=document.getElementById('cform'),ok=document.getElementById('fok');
+  f.style.cssText='opacity:0;transform:scale(.95);transition:all .3s';
+  setTimeout(()=>{f.style.display='none';ok.style.display='block'},300);
+}
+
+/* ====== SMOOTH SCROLL ====== */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+/* ====== ACTIVE NAV ====== */
+const secs=document.querySelectorAll('section[id]'),nls=document.querySelectorAll('.nav-ul a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id});
+  nls.forEach(a=>{
+    a.style.color='';
+    if(a.getAttribute('href')==='#'+cur)a.style.color='var(--p400)';
+  });
+});
+</script>
+</body>
+</html>
